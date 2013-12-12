@@ -1,2 +1,5 @@
 <h1>THE DATA</h1>
-<%= @data.inspect %>
+<% @data.each do |station| %>
+<b>Station Name: </b><%= station["name"] %> <b>Longitude: </b> <%= station["lng"]%> <b>Latitude: </b> <%= station["lat"]%>
+<br />
+<% end %>

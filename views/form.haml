@@ -1,0 +1,22 @@
+%h1 Map my route!
+%form{:action=>"/map", :method=>"post"}
+  %label{:for=>"start"}
+    Start:
+  %select{:id=>"start", :name=>"start"}
+    - @data.each do |station|
+      - lat_start = station["lat"] / 1000000.to_f
+      - lng_start = station["lng"] / 1000000.to_f
+      %option{:value=>["#{lat_start}", "#{lng_start}"]}
+        =station["name"]
+  %br
+  %label{:for=>"end"}
+    End:
+  %select{:id=>"end",:name=>"end"}
+    - @data.each do |station|
+    - lat_end = station["lat"] / 1000000.to_f
+    - lng_end = station["lng"] / 1000000.to_f
+      %option{:value=>["#{lat_end}", "#{lng_end}"]}
+        =station["name"]
+  %br
+  %button{:type=>"submit"}
+    Submit

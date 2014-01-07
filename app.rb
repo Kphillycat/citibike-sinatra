@@ -20,11 +20,11 @@ module Citibike
     end
 
     get '/' do
-      erb :home
+      haml :home
     end
 
     get '/form' do
-      erb :form
+      haml :form
     end
 
     post '/form' do
@@ -32,7 +32,6 @@ module Citibike
     end
 
     post '/map' do
-
       @start = params["start"]
       @end = params["end"]
       erb :map
